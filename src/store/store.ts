@@ -1,20 +1,12 @@
 import { create } from 'zustand'
 import { deleteNotes, edidNotes, getAllNotes, saveNotes } from '../services/notes'
-
-interface Note {
-  title?: string
-  description?: string
-}
-
-interface NoteWithId extends Note {
-  id: string
-}
+import { type NoteId, type Note, type NoteWithId } from '../type'
 
 interface State {
   notes: NoteWithId[]
   fetchNotes: () => Promise<void>
   saveNote: (note: Note) => Promise<void>
-  deleteNote: (id: string) => Promise<void>
+  deleteNote: (id: NoteId) => Promise<void>
   editNote: (id: string, note: Note) => Promise<void>
 }
 
