@@ -6,16 +6,19 @@ interface Note {
   description?: string
 }
 
-interface NoteWithId extends Note {
-  id: string
+interface NoteWithId extends Note, id {
+}
+
+interface id {
+  id?: string
 }
 
 interface State {
   notes: NoteWithId[]
   fetchNotes: () => Promise<void>
   saveNote: (note: Note) => Promise<void>
-  deleteNote: (id: string) => Promise<void>
-  editNote: (id: string, note: Note) => Promise<void>
+  deleteNote: (id: id) => Promise<void>
+  editNote: (note: NoteWithId) => Promise<void>
 }
 
 export const useNotes = create<State>((set) => ({
@@ -28,12 +31,12 @@ export const useNotes = create<State>((set) => ({
     const data = await saveNotes(note)
     set(state => ({ notes: [...state.notes, data] }))
   },
-  deleteNote: async (id: string) => {
+  deleteNote: async (id) => {
     await deleteNotes(id)
     set(state => ({ notes: state.notes.filter(note => note.id !== id) }))
   },
-  editNote: async (id, note) => {
-    const data = await edidNotes(id, note)
-    set(state => ({ notes: state.notes.map(note => note.id === id ? data : note) }))
+  editNote: async (note) => {
+    const data = await edidNotes(note)
+    set(state => ({ notes: state.notes.map(e => e.id === note.id ? data : e) }))
   }
 }))

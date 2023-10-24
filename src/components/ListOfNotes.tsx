@@ -1,12 +1,10 @@
 import { useNotes } from '../store/store'
-import { DialogCustomAnimation } from './DialogCustomAnimation'
+import { EdidNote } from './EdidNote'
 
 export const ListOfNotes = () => {
   const allNotes = useNotes(state => state.notes)
   const deletenote = useNotes(state => state.deleteNote)
-  const handleClick = (id: string) => {
-    deletenote(id)
-  }
+
   return (
         <div className='w-full'>
             {allNotes.map(note => (
@@ -16,8 +14,9 @@ export const ListOfNotes = () => {
                         <p>{note.description}</p>
                     </main>
                     <footer>
-                        <DialogCustomAnimation id = {note.id}></DialogCustomAnimation>
-                        <button onClick={() => { handleClick(note.id) } }>Delete Note</button>
+                        {console.log(typeof note.id)}
+                        <EdidNote id = {note.id}></EdidNote>
+                        <button onClick={() => { deletenote(note.id) } }>Delete Note</button>
                     </footer>
                 </section>
             ))}

@@ -21,8 +21,9 @@ export const deleteNotes = async (id) => {
   })
 }
 
-export const edidNotes = async (id, note) => {
-  const res = await fetch(`http://localhost:8080/api/notes/${id}`, {
+export const edidNotes = async (note) => {
+  console.log('note', note)
+  const res = await fetch(`http://localhost:8080/api/notes/${note.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
