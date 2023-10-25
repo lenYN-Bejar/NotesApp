@@ -14,8 +14,8 @@ function App () {
   }, [])
 
   return (
-    <div>
-      <h1>App Notes</h1>
+    <div className='grid align-middle justify-center bg-blue-100'>
+      <h1 className='text-center text-7xl font-bold text-white drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)] shadow-black'>App Notes</h1>
       {/* {allNotes.length === 0 && <Start/>}
       {allNotes.length > 0 && <ListOfNotes/>} */}
       <ListOfNotes></ListOfNotes>

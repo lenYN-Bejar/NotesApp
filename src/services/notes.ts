@@ -1,10 +1,12 @@
+import { type NoteId, type Note } from '../type'
+
 export const getAllNotes = async () => {
   const res = await fetch('http://localhost:8080/api/notes')
   const json = await res.json()
   return json
 }
 
-export const saveNotes = async (note) => {
+export const saveNotes = async (note: Note) => {
   const res = await fetch('http://localhost:8080/api/notes', {
     method: 'POST',
     headers: {
@@ -15,13 +17,13 @@ export const saveNotes = async (note) => {
   return await res.json()
 }
 
-export const deleteNotes = async (id) => {
+export const deleteNotes = async (id: NoteId) => {
   await fetch(`http://localhost:8080/api/notes/${id}`, {
     method: 'DELETE'
   })
 }
 
-export const edidNotes = async (id, note) => {
+export const edidNotes = async (note: Note, id: NoteId) => {
   const res = await fetch(`http://localhost:8080/api/notes/${id}`, {
     method: 'PUT',
     headers: {
