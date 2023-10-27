@@ -53,11 +53,11 @@ export function EdidNote ({ id }: NoteId) {
           unmount: { scale: 0.9, y: -100 }
         }}
       >
-        <DialogHeader>Edita la tarea</DialogHeader>
+        <DialogHeader>Task Edid</DialogHeader>
         <DialogBody>
-          <form onSubmit={handleSubmit} className="flex flex-col">
-              <input type="text" name="title" placeholder='add title'/>
-              <input type="text" name="description" placeholder='add note'/>
+          <form onSubmit={handleSubmit} className="p-2 m-3 flex flex-col border-black rounded-md border-2">
+              <input className='p-2 border-blue-100 rounded-sm border-2' type="text" name="title" placeholder='add title'/>
+              <input className='p-2 border-blue-100 rounded-sm border-2' type="text" name="description" placeholder='add note'/>
               <DialogFooter>
                 <Button
                   variant="text"
