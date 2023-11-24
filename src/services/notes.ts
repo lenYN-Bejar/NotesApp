@@ -15,7 +15,7 @@ export const saveNotes = async (note: Note) => {
     body: JSON.stringify(note)
   })
   if (!res.ok) {
-    throw new Error('Error')
+    throw new Error(res.statusText)
   }
   return await res.json()
 }
