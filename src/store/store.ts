@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { deleteNotes, edidNotes, getAllNotes, saveNotes } from '../services/notes'
+import { deleteNotes, edidNotes, getAllNotes, saveNotes } from '../services/notes-nodeapi.js'
 import { type NoteId, type Note, type NoteWithId } from '../type'
 
 interface State {

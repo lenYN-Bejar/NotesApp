@@ -1,13 +1,13 @@
 import { type NoteId, type Note } from '../type'
 
 export const getAllNotes = async () => {
-  const res = await fetch('http://localhost:8080/api/notes')
+  const res = await fetch('http://localhost:1234/notes')
   const json = await res.json()
   return json
 }
 
 export const saveNotes = async (note: Note) => {
-  const res = await fetch('http://localhost:8080/api/notes', {
+  const res = await fetch('http://localhost:1234/notes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -21,13 +21,13 @@ export const saveNotes = async (note: Note) => {
 }
 
 export const deleteNotes = async (id: NoteId) => {
-  await fetch(`http://localhost:8080/api/notes/${id}`, {
+  await fetch(`http://localhost:1234/notes/${id}`, {
     method: 'DELETE'
   })
 }
 
 export const edidNotes = async (note: Note, id: NoteId) => {
-  const res = await fetch(`http://localhost:8080/api/notes/${id}`, {
+  const res = await fetch(`http://localhost:1234/notes/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
